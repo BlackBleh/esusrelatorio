@@ -1,0 +1,223 @@
+/* stylelint-disable scss/selector-no-redundant-nesting-selector */
+@use "@coreui/coreui/scss/coreui" as * with (
+  $enable-deprecation-messages: false
+);
+@use "@coreui/chartjs/scss/coreui-chartjs";
+@use "vendors/simplebar";
+
+body {
+  background-color: var(--cui-tertiary-bg);
+}
+
+.wrapper {
+  width: 100%;
+  padding-inline: var(--cui-sidebar-occupy-start, 0) var(--cui-sidebar-occupy-end, 0);
+  will-change: auto;
+  @include transition(padding .15s);
+}
+
+.header > .container-fluid,
+.sidebar-header {
+  min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+
+.sidebar-brand-full {
+  margin-left: 3px;
+}
+
+.sidebar-header {
+  .nav-underline-border {
+    --cui-nav-underline-border-link-padding-x: 1rem;
+    --cui-nav-underline-border-gap: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+  }
+}
+
+.sidebar-toggler {
+  margin-inline-start: auto;
+}
+
+.sidebar-narrow,
+.sidebar-narrow-unfoldable:not(:hover) {
+  .sidebar-toggler {
+    margin-inline-end: auto;
+  }
+}
+
+.header > .container-fluid + .container-fluid {
+  min-height: 3rem;
+}
+
+.footer {
+  min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+
+@include color-mode(dark) {
+  body {
+    background-color: var(--cui-dark-bg-subtle);
+  }
+
+  .footer {
+    --cui-footer-bg: var(--cui-body-bg);
+  }
+}
+
+/* --- REGRAS PARA TEMA DO REACT-SELECT --- */
+
+/* Estilos para o tema ESCURO */
+html[data-coreui-theme='dark'] .react-select__control,
+html[data-coreui-theme='dark'] .react-select__menu {
+  background-color: var(--cui-body-bg);
+  border-color: var(--cui-border-color);
+  color: var(--cui-body-color);
+}
+
+html[data-coreui-theme='dark'] .react-select__single-value,
+html[data-coreui-theme='dark'] .react-select__placeholder,
+html[data-coreui-theme='dark'] .react-select__input {
+  color: var(--cui-body-color);
+}
+
+html[data-coreui-theme='dark'] .react-select__option {
+  background-color: var(--cui-body-bg);
+  color: var(--cui-body-color);
+}
+
+html[data-coreui-theme='dark'] .react-select__option--is-focused {
+  background-color: var(--cui-tertiary-bg);
+}
+
+html[data-coreui-theme='dark'] .react-select__option--is-selected {
+  background-color: var(--cui-secondary-bg);
+}
+
+html[data-coreui-theme='dark'] .react-select__indicator-separator {
+  background-color: var(--cui-border-color);
+}
+
+html[data-coreui-theme='dark'] .react-select__dropdown-indicator,
+html[data-coreui-theme='dark'] .react-select__clear-indicator {
+  color: var(--cui-secondary-color);
+}
+
+html[data-coreui-theme='dark'] .react-select__dropdown-indicator:hover,
+html[data-coreui-theme='dark'] .react-select__clear-indicator:hover {
+  color: var(--cui-body-color);
+}
+
+
+/* Estilos para o tema CLARO */
+html[data-coreui-theme='light'] .react-select__control,
+html[data-coreui-theme='light'] .react-select__menu {
+  background-color: var(--cui-body-bg);
+  border-color: var(--cui-border-color);
+  color: var(--cui-body-color);
+}
+
+html[data-coreui-theme='light'] .react-select__single-value,
+html[data-coreui-theme='light'] .react-select__placeholder,
+html[data-coreui-theme='light'] .react-select__input {
+  color: var(--cui-body-color);
+}
+
+html[data-coreui-theme='light'] .react-select__option {
+  background-color: var(--cui-body-bg);
+  color: var(--cui-body-color);
+}
+
+html[data-coreui-theme='light'] .react-select__option--is-focused {
+  background-color: var(--cui-tertiary-bg);
+}
+
+html[data-coreui-theme='light'] .react-select__option--is-selected {
+  background-color: var(--cui-secondary-bg);
+}
+
+html[data-coreui-theme='light'] .react-select__indicator-separator {
+  background-color: var(--cui-border-color);
+}
+
+html[data-coreui-theme='light'] .react-select__dropdown-indicator,
+html[data-coreui-theme='light'] .react-select__clear-indicator {
+  color: var(--cui-secondary-color);
+}
+
+html[data-coreui-theme='light'] .react-select__dropdown-indicator:hover,
+html[data-coreui-theme='light'] .react-select__clear-indicator:hover {
+  color: var(--cui-body-color);
+}
+
+/* --- REGRAS PARA TEMA DA SIDEBAR (MUDANÇA AQUI: Definição mais abrangente de variáveis) --- */
+
+// Define as variáveis de cor para a sidebar no tema ESCURO
+html[data-coreui-theme='dark'] {
+  --cui-sidebar-bg: #212631; // Fundo da sidebar
+  --cui-sidebar-color: #abb8c3; // Cor do texto principal
+  --cui-sidebar-border-color: #313a48; // Borda da sidebar
+  --cui-sidebar-header-border-color: #313a48;
+  --cui-sidebar-nav-link-color: #abb8c3; // Cor dos links de navegação
+  --cui-sidebar-nav-link-hover-bg: #313a48; // Fundo do link ao passar o mouse
+  --cui-sidebar-nav-link-hover-color: #fff; // Cor do texto do link ao passar o mouse
+  --cui-sidebar-nav-link-active-bg: var(--cui-primary); // Cor do link ativo
+  --cui-sidebar-nav-link-active-color: #fff; // Cor do texto ativo
+  --cui-sidebar-nav-group-toggle-color: #abb8c3; // Cor da seta do grupo
+  --cui-sidebar-nav-group-bg: #2a303b; // Fundo do grupo aberto
+
+  // Regras diretas para texto dentro da sidebar no tema ESCURO
+  .sidebar-brand-text,
+  .sidebar-nav-link,
+  .sidebar-nav-group-toggle {
+    color: var(--cui-sidebar-color);
+  }
+  // Garante que o texto dos links aninhados também pegue a cor correta
+  .sidebar-nav-group-items .sidebar-nav-link {
+    color: var(--cui-sidebar-nav-link-color);
+  }
+}
+
+// Define as variáveis de cor para a sidebar no tema CLARO
+html[data-coreui-theme='light'] {
+  --cui-sidebar-bg: #fff;
+  --cui-sidebar-color: #212529;
+  --cui-sidebar-border-color: #dee2e6;
+  --cui-sidebar-header-border-color: #dee2e6;
+  --cui-sidebar-nav-link-color: #212529;
+  --cui-sidebar-nav-link-hover-bg: #e9ecef;
+  --cui-sidebar-nav-link-hover-color: #212529;
+  --cui-sidebar-nav-link-active-bg: var(--cui-primary);
+  --cui-sidebar-nav-link-active-color: #fff;
+  --cui-sidebar-nav-group-toggle-color: #212529;
+  --cui-sidebar-nav-group-bg: #f8f9fa;
+
+  // Regras diretas para texto dentro da sidebar no tema CLARO
+  .sidebar-brand-text,
+  .sidebar-nav-link,
+  .sidebar-nav-group-toggle {
+    color: var(--cui-sidebar-color);
+  }
+  // Garante que o texto dos links aninhados também pegue a cor correta
+  .sidebar-nav-group-items .sidebar-nav-link {
+    color: var(--cui-sidebar-nav-link-color);
+  }
+}
+
+/* --- REGRAS PARA ESCONDER TEXTO NO SIDEBAR MINIMIZADO --- */
+
+.sidebar-narrow,
+.sidebar-narrow-unfoldable:not(:hover) {
+  /* Esconde o texto da marca quando a sidebar está minimizada */
+  .sidebar-hide-on-narrow {
+    display: none !important;
+  }
+
+  /* Opcional: Ajusta a imagem do brasão para ser menor quando a sidebar está minimizada, se desejar */
+  .d-flex.align-items-center img {
+    height: 32px !important; /* Tamanho menor para o brasão no modo narrow */
+    margin-right: 0 !important; /* Remove margem à direita se o texto sumir */
+  }
+}
