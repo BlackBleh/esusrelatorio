@@ -13,8 +13,8 @@ import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
 
-// Importe o brasão da Prefeitura de Salgueiro
-import brasaoSalgueiro from 'src/images/brasao_salgueiro.png'
+// Importe o brasão da Prefeitura de Serra Talhada
+import brasaoSerraTalhada from 'src/images/brasao_serratalhada.png'
 
 // sidebar nav config
 import navigation from '../_nav'
@@ -48,15 +48,15 @@ const AppSidebar = () => {
         <CSidebarBrand to="/" style={{ textDecoration: 'none' }}>
           <div className="d-flex align-items-center">
             <img
-              src={brasaoSalgueiro}
-              alt="Brasão da Prefeitura de Salgueiro"
+              src={brasaoSerraTalhada}
+              alt="Brasão da Prefeitura de Serra Talhada"
               style={{ height: 40, width: 'auto', marginRight: '10px' }}
             />
             <span
               className="fw-bold fs-6 sidebar-brand-text sidebar-hide-on-narrow"
               // MUDANÇA AQUI: REMOVIDO style={{ color: textColor }}
             >
-              Prefeitura de Salgueiro
+              Prefeitura de Serra Talhada
             </span>
           </div>
         </CSidebarBrand>

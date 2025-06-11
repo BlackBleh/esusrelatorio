@@ -1,4 +1,4 @@
-import brasaoSalgueiro from 'src/images/brasao_salgueiro.png'
+import brasaoSerraTalhada from 'src/images/brasao_salgueiro.png'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -68,12 +68,12 @@ const Login = () => {
                 <CCardBody className="text-center">
                   <div>
                     <img
-                      src={brasaoSalgueiro}
-                      alt="Brasão da Prefeitura de Salgueiro"
+                      src={brasaoSerraTalhada}
+                      alt="Brasão da Prefeitura de Serra Talhada"
                       // Ajuste o estilo para que o brasão se encaixe bem
                       style={{ maxWidth: '180px', height: 'auto', marginBottom: '20px' }}
                     />
-                    <h2 className="mb-3">Prefeitura de Salgueiro</h2> {/* Novo título */}
+                    <h2 className="mb-3">Prefeitura de Serra Talhada</h2> {/* Novo título */}
                     <p className="text-white-50">
                       Sistema de Gerenciamento de Lotação de Servidores.
                       <br />
