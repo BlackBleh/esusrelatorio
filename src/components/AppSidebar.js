@@ -26,15 +26,12 @@ const AppSidebar = () => {
 
   const { colorMode } = useColorModes('coreui-free-react-admin-template-theme')
 
-  // REMOVIDO: A variável textColor não é mais necessária, pois o estilo será gerenciado pelo CSS do CoreUI
-  // const textColor = colorMode === 'light' ? 'var(--cui-body-color)' : 'var(--cui-light-body-color)'; 
-
   // Log de depuração: verifique o valor de colorMode no console
-  console.log('AppSidebar render - colorMode:', colorMode); // Removido textColor do log, pois não será mais usado aqui
+  console.log('AppSidebar render - colorMode:', colorMode);
 
   return (
     <CSidebar
-      key={colorMode} // Mantém a key para forçar re-montagem no tema
+      key={colorMode}
       className="border-end"
       colorScheme={colorMode === 'light' ? 'light' : 'dark'}
       position="fixed"
@@ -45,16 +42,17 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarHeader className="border-bottom">
-        <CSidebarBrand to="/" style={{ textDecoration: 'none' }}>
-          <div className="d-flex align-items-center">
+        {/* MUDANÇA AQUI: Adicionado um estilo para ocupar 100% da largura */}
+        <CSidebarBrand to="/" style={{ textDecoration: 'none', width: '100%' }}>
+          {/* MUDANÇA AQUI: Removido marginRight e adicionado justify-content-center */}
+          <div className="d-flex align-items-center justify-content-center">
             <img
               src={brasaoSerraTalhada}
               alt="Brasão da Prefeitura de Serra Talhada"
-              style={{ height: 40, width: 'auto', marginRight: '10px' }}
+              style={{ height: 40, width: 'auto' }} // Removido marginRight
             />
             <span
               className="fw-bold fs-6 sidebar-brand-text sidebar-hide-on-narrow"
-              // MUDANÇA AQUI: REMOVIDO style={{ color: textColor }}
             >
               Prefeitura de Serra Talhada
             </span>

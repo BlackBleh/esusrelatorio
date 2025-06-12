@@ -1,6 +1,9 @@
 /* stylelint-disable scss/selector-no-redundant-nesting-selector */
 @use "@coreui/coreui/scss/coreui" as * with (
-  $enable-deprecation-messages: false
+  $enable-deprecation-messages: false,
+  // --- NOVAS VARIÁVEIS PARA LARGURA DA SIDEBAR ---
+  $sidebar-width: 450px, // Aumenta a largura padrão da sidebar para 450px
+  $sidebar-narrow-width: 64px // Largura da sidebar quando recolhida (geralmente não precisa mudar)
 );
 @use "@coreui/chartjs/scss/coreui-chartjs";
 @use "vendors/simplebar";
@@ -15,6 +18,7 @@ body {
   will-change: auto;
   @include transition(padding .15s);
 }
+
 
 .header > .container-fluid,
 .sidebar-header {
