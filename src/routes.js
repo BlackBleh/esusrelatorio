@@ -10,11 +10,16 @@ const APSDesenvolvimentoInfantil = React.lazy(() => import('./views/aps/Desenvol
 const APSCuidadoGestantePuerpera = React.lazy(() => import('./views/aps/CuidadoGestantePuerpera'))
 const APSCuidadoDiabetes = React.lazy(() => import('./views/aps/CuidadoDiabetes'))
 
-// IMPORTAÇÕES CORRIGIDAS PARA CUIDADO HIPERTENSAO (AGORA DIVIDIDAS)
+// IMPORTAÇÕES PARA CUIDADO HIPERTENSAO (AGORA DIVIDIDAS)
 const ACuidadoHipertensao = React.lazy(() => import('./views/aps/ACuidadoHipertensao')); // Novo componente A
 const BCuidadoHipertensao = React.lazy(() => import('./views/aps/BCuidadoHipertensao')); // Novo componente B
+const DCuidadoHipertensao = React.lazy(() => import('./views/aps/DCuidadoHipertensao')); // NOVO COMPONENTE D
 
-const APSCuidadoIdosa = React.lazy(() => import('./views/aps/CuidadoIdosa'))
+// IMPORTAÇÕES PARA CUIDADO IDOSA
+const ACuidadoIdoso = React.lazy(() => import('./views/aps/ACuidadoIdoso')); // Componente para o gráfico A de Idosos
+const BCuidadoIdoso = React.lazy(() => import('./views/aps/BCuidadoIdoso')); // NOVO COMPONENTE para o gráfico B de Idosos
+const DCuidadoIdoso = React.lazy(() => import('./views/aps/DCuidadoIdoso')); // Componente para o gráfico D de Idosos
+
 const APSCuidadoCancerMulher = React.lazy(() => import('./views/aps/CuidadoCancerMulher'))
 
 // --- NOVAS IMPORTAÇÕES PARA SAÚDE BUCAL (MANTIDAS) ---
@@ -29,29 +34,30 @@ const SaudeBucalTratamentoRestauradorAtraumatico = React.lazy(() => import('./vi
 const routes = [
   // Você pode querer que a rota principal '/' leve a um dos seus novos dashboards,
   // ou a uma página inicial genérica sobre os indicadores de saúde.
-  // Por exemplo, podemos redirecionar para o Desenvolvimento Infantil:
-  { path: '/', exact: true, name: 'Home', element: APSDesenvolvimentoInfantil }, // Altere o elemento para a sua página inicial desejada
+  { path: '/', exact: true, name: 'Home', element: APSDesenvolvimentoInfantil }, 
 
-  // --- ROTAS PARA ATENÇÃO PRIMÁRIA À SAÚDE (MANTIDAS) ---
+  // --- ROTAS PARA ATENÇÃO PRIMÁRIA À SAÚDE ---
   { path: '/aps', name: 'Atenção Primária à Saúde', element: APSDesenvolvimentoInfantil, exact: true },
   { path: '/aps/desenvolvimento-infantil', name: 'Desenvolvimento Infantil', element: APSDesenvolvimentoInfantil },
   { path: '/aps/gestante-puerpera', name: 'Cuidado da Gestante e Puérpera', element: APSCuidadoGestantePuerpera },
   { path: '/aps/diabetes', name: 'Cuidado da Pessoa com Diabetes', element: APSCuidadoDiabetes },
   
-  // ROTAS CORRIGIDAS PARA CUIDADO DA PESSOA COM HIPERTENSÃO ARTERIAL
-  // A rota base '/aps/hipertensao' pode ser uma página de overview ou redirecionar para 'A'
+  // ROTAS PARA CUIDADO DA PESSOA COM HIPERTENSÃO ARTERIAL
   { path: '/aps/hipertensao', name: 'Cuidado da Pessoa com Hipertensão Arterial', element: ACuidadoHipertensao, exact: true },
   { path: '/aps/hipertensao/consulta-med-enf', name: 'A. Consultas Hipertensos', element: ACuidadoHipertensao },
-  { path: '/aps/hipertensao/reg-peso-altura', name: 'D. Peso e Altura Hipertensos', element: BCuidadoHipertensao },
-  // As rotas para B e C do _nav.js ainda precisam de componentes correspondentes:
-  { path: '/aps/hipertensao/reg-afericao-pressao', name: 'B. Aferição Pressão Hipertensos', element: ACuidadoHipertensao }, // Placeholder, crie seu B real
-  { path: '/aps/hipertensao/visitas-domiciliares', name: 'C. Visitas Domiciliares Hipertensos', element: ACuidadoHipertensao }, // Placeholder, crie seu C real
+  { path: '/aps/hipertensao/reg-afericao-pressao', name: 'B. Aferição Pressão Hipertensos', element: BCuidadoHipertensao }, 
+  { path: '/aps/hipertensao/reg-peso-altura', name: 'D. Peso e Altura Hipertensos', element: DCuidadoHipertensao },
+  { path: '/aps/hipertensao/visitas-domiciliares', name: 'C. Visitas Domiciliares Hipertensos', element: APSDesenvolvimentoInfantil }, // Placeholder
 
+  // ROTAS PARA CUIDADO INTEGRAL DA PESSOA IDOSA
+  { path: '/aps/idosa', name: 'Cuidado da Pessoa Idosa', element: ACuidadoIdoso, exact: true }, // Rota base da Idosa aponta para o primeiro gráfico
+  { path: '/aps/idosa/consulta-med-enf', name: 'A. Consultas Idosos', element: ACuidadoIdoso }, // Rota para o gráfico A de idosos
+  { path: '/aps/idosa/reg-peso-altura', name: 'B. Peso e Altura Idosos', element: BCuidadoIdoso },
+  { path: '/aps/idosa/vacina-influenza', name: 'D. Vacina Influenza Idosos', element: DCuidadoIdoso }, // CORREÇÃO AQUI: Mapeando para o componente DCuidadoIdoso
 
-  { path: '/aps/idosa', name: 'Cuidado da Pessoa Idosa', element: APSCuidadoIdosa },
   { path: '/aps/cancer-mulher', name: 'Cuidado da Mulher na Prevenção do Câncer', element: APSCuidadoCancerMulher },
 
-  // --- ROTAS PARA SAÚDE BUCAL (MANTIDAS) ---
+  // --- ROTAS PARA SAÚDE BUCAL ---
   { path: '/saude-bucal', name: 'Saúde Bucal', element: SaudeBucalPrimeiraConsulta, exact: true },
   { path: '/saude-bucal/primeira-consulta', name: '1ª Consulta Odontológica programada na APS', element: SaudeBucalPrimeiraConsulta },
   { path: '/saude-bucal/tratamento-concluido', name: 'Tratamento Odontológico concluído na APS', element: SaudeBucalTratamentoConcluido },
@@ -63,7 +69,7 @@ const routes = [
   // As rotas de eMulti ainda precisam de componentes
   { path: '/emulti', name: 'eMulti no cuidado integral', element: APSDesenvolvimentoInfantil, exact: true }, // Placeholder
   { path: '/emulti/media-atendimento-por-pessoa', name: 'Média de atendimento da eMulti por pessoa', element: APSDesenvolvimentoInfantil }, // Placeholder
-  { path: '/emulti/acoes-interprofissionais', name: 'Ações Interprofissionais da eMulti', element: APSDesenvolvimentoInfantil }, // Placeholder
+  { path: '/emulti/acoes-interprofissionais', element: APSDesenvolvimentoInfantil }, // Placeholder
 
   // Removendo as rotas de Escola, Servidor de Apoio, Turma, Atipicidade, Aluno Atípico, Lotar
   // (Comentadas como você havia feito antes)

@@ -11,10 +11,11 @@ Chart.register(...registerables, ChartDataLabels);
 
 const BGraficoHipertensos = ({ dataInicial, dataFinal, alturaGrafico }) => {
   const [dadosGrafico, setDadosGrafico] = useState({
-    labels: ['Hipertensos com Peso e Altura Registrados', 'Hipertensos sem Peso e Altura Registrados'],
+    // Rótulos atualizados para aferição de pressão
+    labels: ['Hipertensos com Aferição de Pressão', 'Hipertensos sem Aferição de Pressão'],
     datasets: [{
       data: [0, 0],
-      backgroundColor: ['#20c997', '#ffc107'], // Novas cores para diferenciar
+      backgroundColor: ['#20c997', '#ffc107'], // Cores para aferição de pressão
     }],
   });
   const [carregando, setCarregando] = useState(true);
@@ -43,14 +44,14 @@ const BGraficoHipertensos = ({ dataInicial, dataFinal, alturaGrafico }) => {
     const dataInicialFormatada = formataDataParaBackend(dataInicial);
     const dataFinalFormatada = formataDataParaBackend(dataFinal);
 
-    // Endpoint para estatísticas de peso e altura
-    const endpoint = `/api/hipertensos/estatisticas-peso-altura`;
+    // Endpoint atualizado para aferição de pressão
+    const endpoint = `/api/hipertensos/estatisticas-afericao-pressao`;
     const params = new URLSearchParams({
       dataInicial: dataInicialFormatada,
       dataFinal: dataFinalFormatada,
     }).toString();
     const fullUrlForDebug = `${api.defaults.baseURL}${endpoint}?${params}`;
-    console.log("URL da requisição para o backend (Peso/Altura):", fullUrlForDebug); // Log específico
+    console.log("URL da requisição para o backend (Aferição Pressão):", fullUrlForDebug); // Log específico
 
     api.get(endpoint, {
       params: {
@@ -61,25 +62,25 @@ const BGraficoHipertensos = ({ dataInicial, dataFinal, alturaGrafico }) => {
     .then((res) => {
       const { comConsulta, semConsulta, totalHipertensos } = res.data; // Reutiliza DTO, mas aqui é comRegistro/semRegistro
       setDadosGrafico({
-        labels: ['Hipertensos com Peso e Altura Registrados', 'Hipertensos sem Peso e Altura Registrados'],
+        labels: ['Hipertensos com Aferição de Pressão', 'Hipertensos sem Aferição de Pressão'],
         datasets: [
           {
             data: [comConsulta, semConsulta], // 'comConsulta' do DTO é 'comRegistro' para este gráfico
-            backgroundColor: ['#20c997', '#ffc107'], // Novas cores
+            backgroundColor: ['#20c997', '#ffc107'], // Cores para aferição de pressão
           },
         ],
       });
       setCarregando(false);
     })
     .catch(err => {
-      console.error(`Erro ao carregar estatísticas de peso/altura de hipertensos:`, err);
-      setErro(`Erro ao carregar dados do gráfico de peso/altura de hipertensos. Verifique a URL: ${fullUrlForDebug} e o console do backend para detalhes.`);
+      console.error(`Erro ao carregar estatísticas de aferição de pressão de hipertensos:`, err);
+      setErro(`Erro ao carregar dados do gráfico de aferição de pressão de hipertensos. Verifique a URL: ${fullUrlForDebug} e o console do backend para detalhes.`);
       setCarregando(false);
     });
   }, [dataInicial, dataFinal, alturaGrafico]);
 
   if (carregando) {
-    return <div>Carregando dados do gráfico de peso/altura...</div>;
+    return <div>Carregando dados do gráfico de aferição de pressão...</div>; // Mensagem atualizada
   }
 
   if (erro) {
@@ -130,7 +131,7 @@ const BGraficoHipertensos = ({ dataInicial, dataFinal, alturaGrafico }) => {
             },
             title: {
               display: true,
-              text: 'Estatísticas de Peso e Altura de Hipertensos', // Título específico
+              text: 'Estatísticas de Aferição de Pressão de Hipertensos', // Título atualizado
               color: 'var(--cui-body-color)',
             },
           },
