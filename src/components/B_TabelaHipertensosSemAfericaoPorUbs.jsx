@@ -142,15 +142,15 @@ const B_TabelaHipertensosSemAfericaoPorUbs = ({ dataInicial, dataFinal, selected
                 </CTableRow>
               </CTableHead>
               <CTableBody>
-                {dadosTabela.map((cidadao) => (
-                  <CTableRow key={cidadao.coSeqCidadao}>
-                    <CTableDataCell>{cidadao.nome}</CTableDataCell>
-                    <CTableDataCell>{cidadao.enderecoCompleto}</CTableDataCell> {/* Assumindo que backend retorna enderecoCompleto */}
-                    <CTableDataCell>{cidadao.bairro}</CTableDataCell>
-                    <CTableDataCell>{cidadao.nomeUBS}</CTableDataCell> {/* Assumindo que backend retorna nomeUBS */}
-                  </CTableRow>
-                ))}
-              </CTableBody>
+                {dadosTabela.map((cidadao) => (
+                  <CTableRow key={cidadao.coSeqCidadao}>
+                    <CTableDataCell>{cidadao.nome}</CTableDataCell>
+                    <CTableDataCell>{cidadao.endereco}</CTableDataCell> {/* CORRIGIDO: de enderecoCompleto para endereco */}
+                    <CTableDataCell>{cidadao.bairro}</CTableDataCell>
+                    <CTableDataCell>{cidadao.nomeUbs}</CTableDataCell> {/* CORRIGIDO: de nomeUBS para nomeUbs (u minúsculo) */}
+                  </CTableRow>
+                ))}
+              </CTableBody>
             </CTable>
 
             {totalPaginas > 1 && (
