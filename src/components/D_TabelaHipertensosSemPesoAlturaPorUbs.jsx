@@ -145,9 +145,9 @@ const D_TabelaHipertensosSemPesoAlturaPorUbs = ({ dataInicial, dataFinal, select
                 {dadosTabela.map((cidadao) => (
                   <CTableRow key={cidadao.coSeqCidadao}>
                     <CTableDataCell>{cidadao.nome}</CTableDataCell>
-                    <CTableDataCell>{cidadao.enderecoCompleto}</CTableDataCell>
+                    <CTableDataCell>{cidadao.endereco}</CTableDataCell>
                     <CTableDataCell>{cidadao.bairro}</CTableDataCell>
-                    <CTableDataCell>{cidadao.nomeUBS}</CTableDataCell>
+                    <CTableDataCell>{cidadao.nomeUbs}</CTableDataCell>
                   </CTableRow>
                 ))}
               </CTableBody>

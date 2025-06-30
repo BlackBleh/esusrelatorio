@@ -145,9 +145,9 @@ const A_TabelaHipertensosSemConsultaPorUbs = ({ dataInicial, dataFinal, selected
                 {dadosTabela.map((cidadao) => (
                   <CTableRow key={cidadao.coSeqCidadao}>
                     <CTableDataCell>{cidadao.nome}</CTableDataCell>
-                    <CTableDataCell>{cidadao.enderecoCompleto}</CTableDataCell> {/* Assumindo que backend retorna enderecoCompleto */}
+                    <CTableDataCell>{cidadao.endereco}</CTableDataCell> {/* Assumindo que backend retorna enderecoCompleto */}
                     <CTableDataCell>{cidadao.bairro}</CTableDataCell>
-                    <CTableDataCell>{cidadao.nomeUBS}</CTableDataCell> {/* Assumindo que backend retorna nomeUBS */}
+                    <CTableDataCell>{cidadao.nomeUbs}</CTableDataCell> {/* Assumindo que backend retorna nomeUBS */}
                   </CTableRow>
                 ))}
               </CTableBody>
