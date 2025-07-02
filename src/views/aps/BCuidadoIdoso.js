@@ -11,7 +11,8 @@ import {
 } from '@coreui/react';
 
 // Importações específicas para Cuidado do Idoso - B. Peso e Altura
-import DGraficoIdoso from '../../components/DGraficoIdoso'; // Gráfico B geral (assumindo que DGraficoIdoso é o geral de peso/altura)
+// ANTES: import DGraficoIdoso from '../../components/DGraficoIdoso'; // ESTE ERA O GRÁFICO DA VACINA
+import BGraficoIdoso from '../../components/BGraficoIdoso'; // AGORA IMPORTAMOS O GRÁFICO CORRETO DE PESO/ALTURA
 import B_TabelaIdososSemPesoAltura from '../../components/B_TabelaIdososSemPesoAltura'; // Tabela B geral (peso/altura)
 
 // NOVAS IMPORTAÇÕES PARA O GRÁFICO E TABELA B POR UBS
@@ -67,7 +68,7 @@ const BCuidadoIdoso = () => { // Nome do componente alterado para BCuidadoIdoso
               </CCardHeader>
               <CCardBody>
                 <div style={{ height: alturaDosGraficos, margin: '20px 0' }}>
-                  <DGraficoIdoso // Componente geral existente para peso/altura
+                  <BGraficoIdoso // AGORA USAMOS O COMPONENTE BGraficoIdoso para Peso/Altura
                     dataInicial={dataInicialGrafico}
                     dataFinal={dataFinalGrafico}
                     alturaGrafico={alturaDosGraficos}
@@ -139,4 +140,4 @@ const BCuidadoIdoso = () => { // Nome do componente alterado para BCuidadoIdoso
   );
 };
 
-export default BCuidadoIdoso; // Exportação ajustada
+export default BCuidadoIdoso;

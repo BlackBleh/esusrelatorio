@@ -1,15 +1,16 @@
+// src/components/BGraficoIdoso.jsx
 import React, { useEffect, useState } from 'react';
 import { CChartPie } from '@coreui/react-chartjs';
 import { Chart, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-import api from '../service/api'; // Certifique-se de que este caminho está correto para sua instância Axios
+import api from '../service/api';
 
 Chart.register(...registerables, ChartDataLabels);
 
-const BGraficoIdoso = ({ dataInicial, dataFinal, alturaGrafico }) => {
+const BGraficoIdoso = ({ dataInicial, dataFinal, alturaGrafico }) => { // Nome do componente: BGraficoIdoso
   const [dadosGrafico, setDadosGrafico] = useState({
-    labels: ['Idosos com Peso e Altura', 'Idosos sem Peso e Altura'],
+    labels: ['Idosos com Peso e Altura Registrados', 'Idosos sem Peso e Altura Registrados'], // Rótulos para peso/altura
     datasets: [{
       data: [0, 0],
       backgroundColor: ['#28a745', '#dc3545'], // Cores para peso e altura (verde, vermelho)
@@ -41,7 +42,7 @@ const BGraficoIdoso = ({ dataInicial, dataFinal, alturaGrafico }) => {
     const dataInicialFormatada = formataDataParaBackend(dataInicial);
     const dataFinalFormatada = formataDataParaBackend(dataFinal);
 
-    // Endpoint para estatísticas de idosos com peso e altura
+    // Endpoint correto para estatísticas de idosos com peso e altura
     const endpoint = `/api/idosos/estatisticas-peso-altura`;
     const params = new URLSearchParams({
       dataInicial: dataInicialFormatada,
@@ -59,7 +60,7 @@ const BGraficoIdoso = ({ dataInicial, dataFinal, alturaGrafico }) => {
     .then((res) => {
       const { comCriterio, semCriterio, totalIdosos } = res.data; // DTO de idosos
       setDadosGrafico({
-        labels: ['Idosos com Peso e Altura', 'Idosos sem Peso e Altura'],
+        labels: ['Idosos com Peso e Altura Registrados', 'Idosos sem Peso e Altura Registrados'],
         datasets: [
           {
             data: [comCriterio, semCriterio],
@@ -134,7 +135,7 @@ const BGraficoIdoso = ({ dataInicial, dataFinal, alturaGrafico }) => {
           },
         }}
         width={'100%'}
-        height={alturaGrafico}
+        height={alturaGrafico} // Apenas a variável alturaGrafico, sem comentários dentro das chaves
       />
     </div>
   );
