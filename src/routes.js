@@ -1,26 +1,39 @@
 import React from 'react'
 
 // --- NOVAS IMPORTAÇÕES PARA ATENÇÃO PRIMÁRIA À SAÚDE (MANTIDAS) ---
-const APSDesenvolvimentoInfantil = React.lazy(() => import('./views/aps/DesenvolvimentoInfantil'))
-const APSCuidadoGestantePuerpera = React.lazy(() => import('./views/aps/CuidadoGestantePuerpera'))
+const ADesenvolvimentoInfantil = React.lazy(() => import('./views/aps/ADesenvolvimentoInfantil'))
+const BDesenvolvimentoInfantil = React.lazy(() => import('./views/aps/BDesenvolvimentoInfantil'))
+const CDesenvolvimentoInfantil = React.lazy(() => import('./views/aps/CDesenvolvimentoInfantil'))
+const DDesenvolvimentoInfantil = React.lazy(() => import('./views/aps/DDesenvolvimentoInfantil'))
+const EDesenvolvimentoInfantil = React.lazy(() => import('./views/aps/EDesenvolvimentoInfantil'))
+
+// A importação de APSCuidadoGestantePuerpera foi atualizada para ACuidadoGestantePuerpera
+const ACuidadoGestantePuerpera = React.lazy(() => import('./views/aps/ACuidadoGestantePuerpera'))
+const BGestantePuerpera = React.lazy(() => import('./views/aps/BGestantePuerpera'))
+const CGestantePuerpera = React.lazy(() => import('./views/aps/CGestantePuerpera'))
+const DGestantePuerpera = React.lazy(() => import('./views/aps/DGestantePuerpera'))
+const EGestantePuerpera = React.lazy(() => import('./views/aps/EGestantePuerpera'))
+
+
 const APSCuidadoDiabetes = React.lazy(() => import('./views/aps/CuidadoDiabetes'))
 
 // IMPORTAÇÕES PARA CUIDADO HIPERTENSAO (AGORA DIVIDIDAS)
-const ACuidadoHipertensao = React.lazy(() => import('./views/aps/ACuidadoHipertensao')); // Componente A (Consultas)
-const BCuidadoHipertensao = React.lazy(() => import('./views/aps/BCuidadoHipertensao')); // Componente B (Aferição Pressão)
-const CCuidadoHipertensaoHipertensos = React.lazy(() => import('./views/aps/CCuidadoHipertensao')); // RENOMEADO para evitar conflito com o novo CCuidadoIdoso
-const DCuidadoHipertensao = React.lazy(() => import('./views/aps/DCuidadoHipertensao')); // Componente D (Peso e Altura)
+const ACuidadoHipertensao = React.lazy(() => import('./views/aps/ACuidadoHipertensao'));
+const BCuidadoHipertensao = React.lazy(() => import('./views/aps/BCuidadoHipertensao'));
+const CCuidadoHipertensaoHipertensos = React.lazy(() => import('./views/aps/CCuidadoHipertensao'));
+const DCuidadoHipertensao = React.lazy(() => import('./views/aps/DCuidadoHipertensao'));
 
 // IMPORTAÇÕES PARA CUIDADO IDOSA
-const ACuidadoIdoso = React.lazy(() => import('./views/aps/ACuidadoIdoso')); // Componente para o gráfico A de Idosos
-const BCuidadoIdoso = React.lazy(() => import('./views/aps/BCuidadoIdoso')); // Componente para o gráfico B de Idosos
-const CCuidadoIdoso = React.lazy(() => import('./views/aps/CCuidadoIdoso')); // NOVO COMPONENTE IDOSO C
-const DCuidadoIdoso = React.lazy(() => import('./views/aps/DCuidadoIdoso')); // Componente para o gráfico D de Idosos
+const ACuidadoIdoso = React.lazy(() => import('./views/aps/ACuidadoIdoso'));
+const BCuidadoIdoso = React.lazy(() => import('./views/aps/BCuidadoIdoso'));
+const CCuidadoIdoso = React.lazy(() => import('./views/aps/CCuidadoIdoso'));
+const DCuidadoIdoso = React.lazy(() => import('./views/aps/DCuidadoIdoso'));
 
-// >>> NOVA IMPORTAÇÃO: Cuidado da Mulher para Prevenção do Câncer <<<
+// Importações para Cuidado da Mulher para Prevenção do Câncer
 const ACuidadoMulherCancer = React.lazy(() => import('./views/aps/ACuidadoMulherCancer'));
 const BCuidadoMulherCancer = React.lazy(() => import('./views/aps/BCuidadoMulherCancer'));
 const CCuidadoMulherCancer = React.lazy(() => import('./views/aps/CCuidadoMulherCancer'));
+const DCuidadoMulherCancer = React.lazy(() => import('./views/aps/DCuidadoMulherCancer'));
 
 // --- NOVAS IMPORTAÇÕES PARA SAÚDE BUCAL (MANTIDAS) ---
 const SaudeBucalPrimeiraConsulta = React.lazy(() => import('./views/saudeBucal/PrimeiraConsultaOdontologica'))
@@ -30,19 +43,33 @@ const SaudeBucalEscovacaoSupervisionada = React.lazy(() => import('./views/saude
 const SaudeBucalProcedimentosPreventivos = React.lazy(() => import('./views/saudeBucal/ProcedimentosPreventivos'))
 const SaudeBucalTratamentoRestauradorAtraumatico = React.lazy(() => import('./views/saudeBucal/TratamentoRestauradorAtraumatico'))
 
-
 const routes = [
-  // Você pode querer que a rota principal '/' leve a um dos seus novos dashboards,
-  // ou a uma página inicial genérica sobre os indicadores de saúde.
-  { path: '/', exact: true, name: 'Home', element: APSDesenvolvimentoInfantil },
+  // Rota principal
+  { path: '/', exact: true, name: 'Home', element: ADesenvolvimentoInfantil },
 
   // --- ROTAS PARA ATENÇÃO PRIMÁRIA À SAÚDE ---
-  { path: '/aps', name: 'Atenção Primária à Saúde', element: APSDesenvolvimentoInfantil, exact: true },
-  { path: '/aps/desenvolvimento-infantil', name: 'Desenvolvimento Infantil', element: APSDesenvolvimentoInfantil },
-  { path: '/aps/gestante-puerpera', name: 'Cuidado da Gestante e Puérpera', element: APSCuidadoGestantePuerpera },
+  { path: '/aps', name: 'Atenção Primária à Saúde', element: ADesenvolvimentoInfantil, exact: true },
+  { path: '/aps/desenvolvimento-infantil/primeira-consulta-med-enf', name: 'A. 1ª Consulta Med/Enf (0-30 dias)', element: ADesenvolvimentoInfantil },
+  { path: '/aps/desenvolvimento-infantil/consultas-2-anos', name: 'B. Consultas (0-2 anos)', element: BDesenvolvimentoInfantil },
+  { path: '/aps/desenvolvimento-infantil/peso-altura-2-anos', name: 'C. Peso e Altura (0-2 anos)', element: CDesenvolvimentoInfantil },
+  { path: '/aps/desenvolvimento-infantil/visitas-acs-tacs', name: 'D. Visitas ACS/TACS', element: DDesenvolvimentoInfantil },
+  { path: '/aps/desenvolvimento-infantil/vacinacao-completa', name: 'E. Vacinação Completa', element: EDesenvolvimentoInfantil },
+
+  // ROTAS PARA CUIDADO DA GESTANTE E PUÉRPERA (AJUSTADAS)
+  // A rota base '/aps/gestante-puerpera' foi atualizada para ACuidadoGestantePuerpera
+  { path: '/aps/gestante-puerpera', name: 'Cuidado da Gestante e Puérpera', element: ACuidadoGestantePuerpera, exact: true },
+  { path: '/aps/gestante-puerpera/consulta-prenatal', name: 'A. 1ª Consulta Pré-Natal', element: ACuidadoGestantePuerpera },
+  { path: '/aps/gestante-puerpera/consultas-gestacao', name: 'B. 7+ Consultas Pré-Natal', element: BGestantePuerpera },
+  { path: '/aps/gestante-puerpera/reg-pressao-arterial', name: 'C. Pressão Arterial', element: CGestantePuerpera },
+  { path: '/aps/gestante-puerpera/reg-peso-altura', name: 'D. Peso e Altura', element: DGestantePuerpera },
+  { path: '/aps/gestante-puerpera/visitas-domiciliares', name: 'E. Visitas ACS/TACS', element: EGestantePuerpera },
+
+
+
+
   { path: '/aps/diabetes', name: 'Cuidado da Pessoa com Diabetes', element: APSCuidadoDiabetes },
 
-  // ROTAS PARA CUIDADO DA PESSOA COM HIPERTENSÃO ARTERIAL
+  // ROTAS PARA CUIDADO DA PESSOA COM HIPERTENSAO ARTERIAL
   { path: '/aps/hipertensao', name: 'Cuidado da Pessoa com Hipertensão Arterial', element: ACuidadoHipertensao, exact: true },
   { path: '/aps/hipertensao/consulta-med-enf', name: 'A. Consultas Hipertensos', element: ACuidadoHipertensao },
   { path: '/aps/hipertensao/reg-afericao-pressao', name: 'B. Aferição Pressão Hipertensos', element: BCuidadoHipertensao },
@@ -50,19 +77,18 @@ const routes = [
   { path: '/aps/hipertensao/reg-peso-altura', name: 'D. Peso e Altura Hipertensos', element: DCuidadoHipertensao },
 
   // ROTAS PARA CUIDADO INTEGRAL DA PESSOA IDOSA
-  { path: '/aps/idosa', name: 'Cuidado da Pessoa Idosa', element: ACuidadoIdoso, exact: true }, // Rota base da Idosa aponta para o primeiro gráfico
-  { path: '/aps/idosa/consulta-med-enf', name: 'A. Consultas Idosos', element: ACuidadoIdoso }, // Rota para o gráfico A de idosos
+  { path: '/aps/idosa', name: 'Cuidado da Pessoa Idosa', element: ACuidadoIdoso, exact: true },
+  { path: '/aps/idosa/consulta-med-enf', name: 'A. Consultas Idosos', element: ACuidadoIdoso },
   { path: '/aps/idosa/reg-peso-altura', name: 'B. Peso e Altura Idosos', element: BCuidadoIdoso },
   { path: '/aps/idosa/visitas-domiciliares', name: 'C. Visitas Domiciliares Idosos', element: CCuidadoIdoso },
   { path: '/aps/idosa/vacina-influenza', name: 'D. Vacina Influenza Idosos', element: DCuidadoIdoso },
 
-  // >>> NOVA ROTA: Cuidado da Mulher na Prevenção do Câncer <<<
-  { path: '/aps/cancer-mulher/rastreamento-colo-utero', name: 'Rastreamento Câncer Colo Útero', element: ACuidadoMulherCancer },
+  // ROTAS PARA CUIDADO DA MULHER NA PREVENÇÃO DO CÂNCER
+  { path: '/aps/cancer-mulher/rastreamento-colo-utero', name: 'A. Rastreamento Câncer Colo Útero', element: ACuidadoMulherCancer },
   { path: '/aps/cancer-mulher/vacina-hpv', name: 'B. Vacinação HPV', element: BCuidadoMulherCancer },
   { path: '/aps/cancer-mulher/atendimento-saude-sexual', name: 'C. Atendimento SSR', element: CCuidadoMulherCancer },
-  
-  
-  
+  { path: '/aps/cancer-mulher/cancer-mama', name: 'D. Câncer de Mama', element: DCuidadoMulherCancer },
+
   // --- ROTAS PARA SAÚDE BUCAL ---
   { path: '/saude-bucal', name: 'Saúde Bucal', element: SaudeBucalPrimeiraConsulta, exact: true },
   { path: '/saude-bucal/primeira-consulta', name: '1ª Consulta Odontológica programada na APS', element: SaudeBucalPrimeiraConsulta },
@@ -73,9 +99,9 @@ const routes = [
   { path: '/saude-bucal/tratamento-restaurador-atraumatico', name: 'Tratamento Restaurador Atraumático na APS', element: SaudeBucalTratamentoRestauradorAtraumatico },
 
   // As rotas de eMulti ainda precisam de componentes
-  { path: '/emulti', name: 'eMulti no cuidado integral', element: APSDesenvolvimentoInfantil, exact: true }, // Placeholder
-  { path: '/emulti/media-atendimento-por-pessoa', name: 'Média de atendimento da eMulti por pessoa', element: APSDesenvolvimentoInfantil }, // Placeholder
-  { path: '/emulti/acoes-interprofissionais', element: APSDesenvolvimentoInfantil }, // Placeholder
+  { path: '/emulti', name: 'eMulti no cuidado integral', element: ADesenvolvimentoInfantil, exact: true },
+  { path: '/emulti/media-atendimento-por-pessoa', name: 'Média de atendimento da eMulti por pessoa', element: ADesenvolvimentoInfantil },
+  { path: '/emulti/acoes-interprofissionais', element: ADesenvolvimentoInfantil },
 ]
 
 export default routes;

@@ -28,22 +28,22 @@ const _nav = [
           {
             component: CNavItem,
             name: 'B. >= 09 consultas até 2 anos',
-            to: '/aps/desenvolvimento-infantil/consultas',
+            to: '/aps/desenvolvimento-infantil/consultas-2-anos',
           },
           {
             component: CNavItem,
             name: 'C. >= 09 registros de peso e altura até 2 anos',
-            to: '/aps/desenvolvimento-infantil/peso-altura',
+            to: '/aps/desenvolvimento-infantil/peso-altura-2-anos',
           },
           {
             component: CNavItem,
             name: 'D. >= 02 visitas domiciliares (1ª até 30 dias)',
-            to: '/aps/desenvolvimento-infantil/visitas',
+            to: '/aps/desenvolvimento-infantil/visitas-acs-tacs',
           },
           {
             component: CNavItem,
             name: 'E. Vacinação completa',
-            to: '/aps/desenvolvimento-infantil/vacinacao',
+            to: '/aps/desenvolvimento-infantil/vacinacao-completa',
           },
         ],
       },
@@ -198,7 +198,7 @@ const _nav = [
           {
             component: CNavItem,
             name: 'D. >= 01 exame rastreamento Câncer Mama (50-69a) em 24m',
-            to: '/aps/cancer-mulher/rastreamento-cancer-mama',
+            to: '/aps/cancer-mulher/cancer-mama',
           },
         ],
       },
