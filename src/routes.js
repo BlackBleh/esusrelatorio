@@ -13,9 +13,18 @@ const BGestantePuerpera = React.lazy(() => import('./views/aps/BGestantePuerpera
 const CGestantePuerpera = React.lazy(() => import('./views/aps/CGestantePuerpera'))
 const DGestantePuerpera = React.lazy(() => import('./views/aps/DGestantePuerpera'))
 const EGestantePuerpera = React.lazy(() => import('./views/aps/EGestantePuerpera'))
+const FGestantePuerpera = React.lazy(() => import('./views/aps/FGestantePuerpera'))
 
 
-const APSCuidadoDiabetes = React.lazy(() => import('./views/aps/CuidadoDiabetes'))
+//DIABETES
+const ACuidadoDiabetes = React.lazy(() => import('./views/aps/ACuidadoDiabetes'))
+const BCuidadoDiabetes = React.lazy(() => import('./views/aps/BCuidadoDiabetes'))
+const CCuidadoDiabetes = React.lazy(() => import('./views/aps/CCuidadoDiabetes'))
+const DCuidadoDiabetes = React.lazy(() => import('./views/aps/DCuidadoDiabetes'))
+const ECuidadoDiabetes = React.lazy(() => import('./views/aps/ECuidadoDiabetes'))
+const FCuidadoDiabetes = React.lazy(() => import('./views/aps/FCuidadoDiabetes'))
+
+
 
 // IMPORTAÇÕES PARA CUIDADO HIPERTENSAO (AGORA DIVIDIDAS)
 const ACuidadoHipertensao = React.lazy(() => import('./views/aps/ACuidadoHipertensao'));
@@ -63,11 +72,21 @@ const routes = [
   { path: '/aps/gestante-puerpera/reg-pressao-arterial', name: 'C. Pressão Arterial', element: CGestantePuerpera },
   { path: '/aps/gestante-puerpera/reg-peso-altura', name: 'D. Peso e Altura', element: DGestantePuerpera },
   { path: '/aps/gestante-puerpera/visitas-domiciliares', name: 'E. Visitas ACS/TACS', element: EGestantePuerpera },
+  { path: '/aps/gestante-puerpera/vacina-dtpa', name: 'F. Dose dTpa', element: FGestantePuerpera },
 
 
 
+  // ROTAS PARA CUIDADO DA PESSOA COM DIABETES (AJUSTADAS)
+  { path: '/aps/diabetes', name: 'Cuidado da Pessoa com Diabetes', element: ACuidadoDiabetes, exact: true },
+  { path: '/aps/diabetes/consulta-med-enf', name: 'A. Consultas Médico/Enfermeiro', element: ACuidadoDiabetes },
+  { path: '/aps/diabetes/pressao-arterial', name: 'B. Pressão Arterial', element: BCuidadoDiabetes },
+  { path: '/aps/diabetes/visitas-domiciliares', name: 'C. Visitas ACS/TACS', element: CCuidadoDiabetes }, // Rota para o Gráfico C de Diabetes
+  { path: '/aps/diabetes/peso-altura', name: 'D. Peso e Altura', element: DCuidadoDiabetes },
+  { path: '/aps/diabetes/hemoglobina-glicada', name: 'E. Hemoglobina Glicada', element: ECuidadoDiabetes },
+  { path: '/aps/diabetes/exame-pe', name: 'F. Exame do Pé', element: FCuidadoDiabetes },
 
-  { path: '/aps/diabetes', name: 'Cuidado da Pessoa com Diabetes', element: APSCuidadoDiabetes },
+
+
 
   // ROTAS PARA CUIDADO DA PESSOA COM HIPERTENSAO ARTERIAL
   { path: '/aps/hipertensao', name: 'Cuidado da Pessoa com Hipertensão Arterial', element: ACuidadoHipertensao, exact: true },

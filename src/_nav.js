@@ -97,7 +97,7 @@ const _nav = [
           {
             component: CNavItem,
             name: 'B. >= 01 reg. pressão arterial em 6 meses',
-            to: '/aps/diabetes/reg-pressao-arterial',
+            to: '/aps/diabetes/pressao-arterial',
           },
           {
             component: CNavItem,
@@ -107,17 +107,17 @@ const _nav = [
           {
             component: CNavItem,
             name: 'D. >= 01 reg. peso e altura em 12 meses',
-            to: '/aps/diabetes/reg-peso-altura',
+            to: '/aps/diabetes/peso-altura',
           },
           {
             component: CNavItem,
             name: 'E. >= 01 reg. Hemoglobina Glicada em 12 meses',
-            to: '/aps/diabetes/reg-hemoglobina-glicada',
+            to: '/aps/diabetes/hemoglobina-glicada',
           },
           {
             component: CNavItem,
             name: 'F. >= 01 reg. avaliação dos pés em 15 meses',
-            to: '/aps/diabetes/reg-avaliacao-pes',
+            to: '/aps/diabetes/exame-pe',
           },
         ],
       },

@@ -120,7 +120,6 @@ const EGestantePuerpera = () => {
             </CCard>
           </CCol>
         </CRow>
-
        
         <CRow className="mb-4">
           <CCol md={12}>
