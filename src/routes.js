@@ -44,13 +44,13 @@ const BCuidadoMulherCancer = React.lazy(() => import('./views/aps/BCuidadoMulher
 const CCuidadoMulherCancer = React.lazy(() => import('./views/aps/CCuidadoMulherCancer'));
 const DCuidadoMulherCancer = React.lazy(() => import('./views/aps/DCuidadoMulherCancer'));
 
-// --- NOVAS IMPORTAÇÕES PARA SAÚDE BUCAL (MANTIDAS) ---
-const SaudeBucalPrimeiraConsulta = React.lazy(() => import('./views/saudeBucal/PrimeiraConsultaOdontologica'))
-const SaudeBucalTratamentoConcluido = React.lazy(() => import('./views/saudeBucal/TratamentoOdontologicoConcluido'))
-const SaudeBucalTaxaExodontias = React.lazy(() => import('./views/saudeBucal/TaxaExodontias'))
-const SaudeBucalEscovacaoSupervisionada = React.lazy(() => import('./views/saudeBucal/EscovacaoSupervisionada'))
-const SaudeBucalProcedimentosPreventivos = React.lazy(() => import('./views/saudeBucal/ProcedimentosPreventivos'))
-const SaudeBucalTratamentoRestauradorAtraumatico = React.lazy(() => import('./views/saudeBucal/TratamentoRestauradorAtraumatico'))
+// Importações para Saúde Bucal
+const SaudeBucalPrimeiraConsulta = React.lazy(() => import('./views/aps/SaudeBucalPrimeiraConsulta')) // Página existente
+const SaudeBucalTratamentoConcluido = React.lazy(() => import('./views/aps/SaudeBucalTratamentoConcluido')) // Página existente
+const SaudeBucalTaxaExodontias = React.lazy(() => import('./views/aps/SaudeBucalTaxaExodontias')) // Página existente
+const SaudeBucalEscovacaoSupervisionada = React.lazy(() => import('./views/aps/SaudeBucalEscovacaoSupervisionada')) // Página existente
+const SaudeBucalProcedimentosPreventivos = React.lazy(() => import('./views/aps/SaudeBucalProcedimentosPreventivos')) // Página existente
+const SaudeBucalTratamentoRestauradorAtraumatico = React.lazy(() => import('./views/aps/SaudeBucalTratamentoRestauradorAtraumatico')) // Página existente
 
 const routes = [
   // Rota principal
@@ -74,8 +74,6 @@ const routes = [
   { path: '/aps/gestante-puerpera/visitas-domiciliares', name: 'E. Visitas ACS/TACS', element: EGestantePuerpera },
   { path: '/aps/gestante-puerpera/vacina-dtpa', name: 'F. Dose dTpa', element: FGestantePuerpera },
 
-
-
   // ROTAS PARA CUIDADO DA PESSOA COM DIABETES (AJUSTADAS)
   { path: '/aps/diabetes', name: 'Cuidado da Pessoa com Diabetes', element: ACuidadoDiabetes, exact: true },
   { path: '/aps/diabetes/consulta-med-enf', name: 'A. Consultas Médico/Enfermeiro', element: ACuidadoDiabetes },
@@ -84,9 +82,6 @@ const routes = [
   { path: '/aps/diabetes/peso-altura', name: 'D. Peso e Altura', element: DCuidadoDiabetes },
   { path: '/aps/diabetes/hemoglobina-glicada', name: 'E. Hemoglobina Glicada', element: ECuidadoDiabetes },
   { path: '/aps/diabetes/exame-pe', name: 'F. Exame do Pé', element: FCuidadoDiabetes },
-
-
-
 
   // ROTAS PARA CUIDADO DA PESSOA COM HIPERTENSAO ARTERIAL
   { path: '/aps/hipertensao', name: 'Cuidado da Pessoa com Hipertensão Arterial', element: ACuidadoHipertensao, exact: true },
@@ -109,13 +104,13 @@ const routes = [
   { path: '/aps/cancer-mulher/cancer-mama', name: 'D. Câncer de Mama', element: DCuidadoMulherCancer },
 
   // --- ROTAS PARA SAÚDE BUCAL ---
-  { path: '/saude-bucal', name: 'Saúde Bucal', element: SaudeBucalPrimeiraConsulta, exact: true },
+  { path: '/saude-bucal', name: 'Saúde Bucal', element: SaudeBucalPrimeiraConsulta, exact: true }, // Rota base
   { path: '/saude-bucal/primeira-consulta', name: '1ª Consulta Odontológica programada na APS', element: SaudeBucalPrimeiraConsulta },
-  { path: '/saude-bucal/tratamento-concluido', name: 'Tratamento Odontológico concluído na APS', element: SaudeBucalTratamentoConcluido },
-  { path: '/saude-bucal/taxa-exodontias', name: 'Taxa de exodontias na APS', element: SaudeBucalTaxaExodontias },
-  { path: '/saude-bucal/escovacao-supervisionada', name: 'Escovação Supervisionada na APS', element: SaudeBucalEscovacaoSupervisionada },
-  { path: '/saude-bucal/procedimentos-preventivos', name: 'Procedimentos Odontológicos preventivos na APS', element: SaudeBucalProcedimentosPreventivos },
-  { path: '/saude-bucal/tratamento-restaurador-atraumatico', name: 'Tratamento Restaurador Atraumático na APS', element: SaudeBucalTratamentoRestauradorAtraumatico },
+  { path: '/saude-bucal/tratamento-concluido', name: 'B. Tratamento Odontológico Concluído', element: SaudeBucalTratamentoConcluido },
+  { path: '/saude-bucal/taxa-exodontias', name: 'C. Taxa de Exodontias', element: SaudeBucalTaxaExodontias },
+  { path: '/saude-bucal/escovacao-supervisionada', name: 'D. Escovação Supervisionada', element: SaudeBucalEscovacaoSupervisionada },
+  { path: '/saude-bucal/procedimentos-preventivos', name: 'E. Procedimentos Preventivos', element: SaudeBucalProcedimentosPreventivos },
+  { path: '/saude-bucal/tratamento-restaurador-atraumatico', name: 'F. Tratamento Restaurador Atraumático', element: SaudeBucalTratamentoRestauradorAtraumatico },
 
   // As rotas de eMulti ainda precisam de componentes
   { path: '/emulti', name: 'eMulti no cuidado integral', element: ADesenvolvimentoInfantil, exact: true },
