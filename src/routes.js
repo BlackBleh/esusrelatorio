@@ -15,7 +15,6 @@ const DGestantePuerpera = React.lazy(() => import('./views/aps/DGestantePuerpera
 const EGestantePuerpera = React.lazy(() => import('./views/aps/EGestantePuerpera'))
 const FGestantePuerpera = React.lazy(() => import('./views/aps/FGestantePuerpera'))
 
-
 //DIABETES
 const ACuidadoDiabetes = React.lazy(() => import('./views/aps/ACuidadoDiabetes'))
 const BCuidadoDiabetes = React.lazy(() => import('./views/aps/BCuidadoDiabetes'))
@@ -23,8 +22,6 @@ const CCuidadoDiabetes = React.lazy(() => import('./views/aps/CCuidadoDiabetes')
 const DCuidadoDiabetes = React.lazy(() => import('./views/aps/DCuidadoDiabetes'))
 const ECuidadoDiabetes = React.lazy(() => import('./views/aps/ECuidadoDiabetes'))
 const FCuidadoDiabetes = React.lazy(() => import('./views/aps/FCuidadoDiabetes'))
-
-
 
 // IMPORTAÇÕES PARA CUIDADO HIPERTENSAO (AGORA DIVIDIDAS)
 const ACuidadoHipertensao = React.lazy(() => import('./views/aps/ACuidadoHipertensao'));
@@ -51,6 +48,10 @@ const SaudeBucalTaxaExodontias = React.lazy(() => import('./views/aps/SaudeBucal
 const SaudeBucalEscovacaoSupervisionada = React.lazy(() => import('./views/aps/SaudeBucalEscovacaoSupervisionada')) // Página existente
 const SaudeBucalProcedimentosPreventivos = React.lazy(() => import('./views/aps/SaudeBucalProcedimentosPreventivos')) // Página existente
 const SaudeBucalTratamentoRestauradorAtraumatico = React.lazy(() => import('./views/aps/SaudeBucalTratamentoRestauradorAtraumatico')) // Página existente
+
+// Importações para eMulti
+const AMultiMediaAtendimentoPorPessoa = React.lazy(() => import('./views/aps/AMultiMediaAtendimentoPorPessoa')) // Página criada
+const BAcoesInterprofissionais = React.lazy(() => import('./views/aps/BAcoesInterprofissionais')) // Página criada
 
 const routes = [
   // Rota principal
@@ -112,10 +113,11 @@ const routes = [
   { path: '/saude-bucal/procedimentos-preventivos', name: 'E. Procedimentos Preventivos', element: SaudeBucalProcedimentosPreventivos },
   { path: '/saude-bucal/tratamento-restaurador-atraumatico', name: 'F. Tratamento Restaurador Atraumático', element: SaudeBucalTratamentoRestauradorAtraumatico },
 
-  // As rotas de eMulti ainda precisam de componentes
-  { path: '/emulti', name: 'eMulti no cuidado integral', element: ADesenvolvimentoInfantil, exact: true },
-  { path: '/emulti/media-atendimento-por-pessoa', name: 'Média de atendimento da eMulti por pessoa', element: ADesenvolvimentoInfantil },
-  { path: '/emulti/acoes-interprofissionais', element: ADesenvolvimentoInfantil },
+   // ROTAS PARA EMULTI (AJUSTADAS)
+  { path: '/emulti', name: 'eMulti no cuidado integral', element: AMultiMediaAtendimentoPorPessoa, exact: true }, // Rota base
+  { path: '/emulti/media-atendimento-por-pessoa', name: 'A. Média de atendimento da eMulti por pessoa', element: AMultiMediaAtendimentoPorPessoa },
+
+  { path: '/emulti/acoes-interprofissionais', name: 'B. Ações Interprofissionais', element: BAcoesInterprofissionais },
 ]
 
 export default routes;
