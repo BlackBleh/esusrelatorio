@@ -23,7 +23,7 @@ const _nav = [
           {
             component: CNavItem,
             name: 'A. 1ª consulta presencial até 30 dias',
-            to: '/aps/desenvolvimento-infantil/primeira-consulta',
+            to: '/aps/desenvolvimento-infantil/primeira-consulta-med-enf',
           },
           {
             component: CNavItem,
